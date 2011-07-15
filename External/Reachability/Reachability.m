@@ -433,13 +433,15 @@ const SCNetworkReachabilityFlags kConnectionDown =  kSCNetworkReachabilityFlagsC
 			return (flags & kSCNetworkReachabilityFlagsIsDirect) ? kReachableViaWiFi : kNotReachable;
 
 		}
-		
+
+#if	TARGET_OS_IPHONE
 		// Observed WWAN Values:
 		// WWAN Active:              Reachability Flag Status: WR -t-----
 		// WWAN Connection required: Reachability Flag Status: WR ct-----
 		//
 		// Test Value: Reachability Flag Status: WR xxxxxxx
 		if (flags & kSCNetworkReachabilityFlagsIsWWAN) { return kReachableViaWWAN; }
+#endif	// TARGET_OS_IPHONE
 		
 		// Clear moot bits.
 		flags &= ~kSCNetworkReachabilityFlagsReachable;
