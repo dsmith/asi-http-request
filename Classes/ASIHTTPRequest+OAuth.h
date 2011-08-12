@@ -1,7 +1,7 @@
 //
 //  ASIHTTPRequest+OAuth.h
 //
-//  Copyright (c) 2011, Seth Fitzsimmons
+//  Copyright (c) 2011, SimpleGeo Inc.
 //  All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,8 +27,8 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import "ASIHTTPRequest.h"
 
+#import "ASIHTTPRequest.h"
 
 @interface ASIHTTPRequest (OAuth)
 
@@ -51,5 +51,7 @@
                       signatureMethod:(NSString *)signatureMethod;
 
 - (void)setOAuthSignatureMethod:(NSString *)signatureMethod;
+
+- (void) setAuthenticationRealm:(NSString *)realm;
 
 @end

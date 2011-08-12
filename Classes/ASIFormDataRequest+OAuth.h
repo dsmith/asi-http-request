@@ -1,8 +1,9 @@
 //
 //  ASIFormDataRequest+OAuth.h
+//  Kiip
 //
-//  Copyright (c) 2011, Seth Fitzsimmons
-//  All rights reserved.
+//  Created by Grantland Chew on 3/3/11.
+//  Copyright 2011 Kiip. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -27,9 +28,31 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-
 #import "ASIFormDataRequest.h"
 
+
 @interface ASIFormDataRequest (OAuth)
+
++ (id)requestWithURL:(NSURL *)newURL
+         consumerKey:(NSString *)consumerKey
+      consumerSecret:(NSString *)consumerSecret
+               token:(NSString *)token
+         tokenSecret:(NSString *)tokenSecret;
+
+- (id)initWithURL:(NSURL *)newURL
+      consumerKey:(NSString *)consumerKey
+   consumerSecret:(NSString *)consumerSecret
+            token:(NSString *)token
+      tokenSecret:(NSString *)tokenSecret;
+
+- (void)addOAuthHeaderWithConsumerKey:(NSString *)consumerKey
+                       consumerSecret:(NSString *)consumerSecret
+                                token:(NSString *)token
+                          tokenSecret:(NSString *)tokenSecret
+                      signatureMethod:(NSString *)signatureMethod;
+
+- (void)setOAuthSignatureMethod:(NSString *)signatureMethod;
+
+- (void)setAuthenticationRealm:(NSString *)realm;
 
 @end
